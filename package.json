@@ -1,0 +1,49 @@
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=127.0.0.1",
+    "build": "vite build && node scripts/build-offline.mjs && npm run build:server",
+    "preview": "vite preview --host=127.0.0.1",
+    "clean": "node -e \"require('fs').rmSync('dist', {recursive:true, force:true})\"",
+    "lint": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
+    "start": "node build/index.mjs",
+    "setup:offline": "node scripts/setup-offline.mjs",
+    "check:ai": "node build/check-ai.mjs",
+    "build:server": "esbuild server/index.ts server/check-ai.ts --bundle --platform=node --format=esm --packages=external --outdir=build --out-extension:.js=.mjs",
+    "check:production": "node scripts/smoke-production.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "openai": "^7.43.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@types/express": "^4.17.21",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.28.2",
+    "jsdom": "^26.1.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@tailwindcss/vite": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

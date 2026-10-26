@@ -1,0 +1,6 @@
+{
+  "name": "GNUSim8085 - Intel 8085 Microprocessor Simulator & Assembler",
+  "description": "A full-featured graphical simulator, assembler, and debugger for the Intel 8085 microprocessor with live registers, memory/stack inspector, step execution, and I/O peripherals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: gnusim8085
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: TRUST_PROXY
+        value: "1"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: AI_DAILY_REQUEST_LIMIT
+        value: "200"
+      - key: AI_REQUESTS_PER_MINUTE
+        value: "8"
+      - key: AI_MAX_CONCURRENT
+        value: "4"
